@@ -32,9 +32,9 @@ const bookingUrl = "https://bookings.cloud.microsoft/book/AskInnovation@ask-inno
 
 const french = {
   "Platform": "Plateforme", "Channels": "Canaux", "Network": "Réseau", "About": "À propos", "See the platform": "Voir la plateforme", "Book a demo": "Demander une démo",
-  "AI support infrastructure for electric mobility": "L'infrastructure de support IA pour la mobilité électrique",
+  "The e-mobility helpdesk built for the AI agent era": "Le helpdesk de l'e-mobilité conçu pour l'ère des agents IA",
   "Automate support for your EV charging users.": "Automatisez l'assistance de vos utilisateurs de bornes.", "Manage it all from one place.": "Pilotez tout depuis un seul espace.",
-  "EV24 brings messages, calls, charger context and AI assistance into one workspace, so CPOs and eMSPs can resolve issues without losing the human connection.": "EV24 réunit messages, appels, contexte des bornes et assistance IA dans un seul espace, pour permettre aux CPO et eMSP de résoudre les problèmes sans perdre le lien humain.",
+  "Automate support for EV charging users and manage every message, call and charger issue from one place. EV24 gives CPOs and eMSPs the context to resolve requests without losing the human connection.": "Automatisez l'assistance de vos utilisateurs de bornes et pilotez chaque message, appel et incident de recharge depuis un seul espace. EV24 donne aux CPO et eMSP tout le contexte nécessaire pour résoudre les demandes sans perdre le lien humain.",
   "Book a personalised demo": "Demander une démo personnalisée", "Explore the platform": "Explorer la plateforme", "chargers connected": "bornes connectées", "6 channels": "6 canaux", "plus voice in one inbox": "et la voix dans une seule boîte", "7 days": "7j/7", "support availability": "support disponible",
   "One workspace for every way customers reach you": "Un seul espace pour tous les canaux de vos clients", "Email": "E-mail", "Web widget": "Widget web", "Voice": "Téléphonie",
   "Built for charging operations": "Conçu pour les opérations de recharge", "Turn support moments into confident resolutions.": "Transformez chaque demande en résolution maîtrisée.",
@@ -54,7 +54,7 @@ const french = {
 };
 
 function ChannelMark({ channel }) {
-  if (channel.logo) return <img src={channel.logo} alt=""/>;
+  if (channel.logo) return <img src={channel.logo} alt={`Logo ${channel.label}`}/>;
 
   const symbols = {
     email: <><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></>,
@@ -94,7 +94,7 @@ function ProductInbox({ t }) {
     <div className="product-shell" aria-label="EV24 support workspace preview">
       <div className="product-body">
         <aside className="app-sidebar">
-          <div className="workspace-name"><img src="https://www.ev24.io/wp-content/uploads/2022/09/cropped-Icone-EV24-01-1-e1662036272822-32x32.png" alt=""/><strong>EV24</strong><span>⌄</span></div>
+          <div className="workspace-name"><img src="https://www.ev24.io/wp-content/uploads/2022/09/cropped-Icone-EV24-01-1-e1662036272822-32x32.png" alt="Icône de l'espace EV24"/><strong>EV24</strong><span>⌄</span></div>
           <div className="workspace-search">⌕ <span>{t("Search...")}</span></div>
           <div className="side-nav-item"><Icon name="chat" size={14}/> {t("My Inbox")} <b>4</b></div>
           <div className="side-nav-item side-active"><Icon name="chat" size={14}/> {t("Conversations")} <span>⌃</span></div>
@@ -146,9 +146,9 @@ function App() {
       <header className="nav-wrap"><nav className="nav container"><Brand/><div className={`nav-links ${menuOpen ? "open" : ""}`}><a href="#platform" onClick={() => setMenuOpen(false)}>{t("Platform")}</a><a href="#channels" onClick={() => setMenuOpen(false)}>{t("Channels")}</a><a href="#network" onClick={() => setMenuOpen(false)}>{t("Network")}</a><a href="#about" onClick={() => setMenuOpen(false)}>{t("About")}</a><a className="mobile-cta" href={bookingUrl}>{t("Book a demo")}</a></div><div className="nav-actions"><a className="text-link" href="#platform">{t("See the platform")}</a><div className="language-switch" role="group" aria-label="Language"><button className={language === "fr" ? "active" : ""} onClick={() => changeLanguage("fr")} aria-pressed={language === "fr"}>FR</button><button className={language === "en" ? "active" : ""} onClick={() => changeLanguage("en")} aria-pressed={language === "en"}>EN</button></div><a className="button button-dark" href={bookingUrl}>{t("Book a demo")} <Icon name="arrow" size={16}/></a></div><div className="mobile-language language-switch" role="group" aria-label="Language"><button className={language === "fr" ? "active" : ""} onClick={() => changeLanguage("fr")}>FR</button><button className={language === "en" ? "active" : ""} onClick={() => changeLanguage("en")}>EN</button></div><button className="menu-button" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle navigation" aria-expanded={menuOpen}><Icon name={menuOpen ? "close" : "menu"}/></button></nav></header>
 
       <section className="hero container">
-        <div className="eyebrow"><span><Icon name="spark" size={14}/></span>{t("AI support infrastructure for electric mobility")}</div>
+        <div className="eyebrow"><span><Icon name="spark" size={15}/></span><i/>{t("The e-mobility helpdesk built for the AI agent era")}</div>
         <h1>{t("Automate support for your EV charging users.")}<br/><em>{t("Manage it all from one place.")}</em></h1>
-        <p className="hero-copy">{t("EV24 brings messages, calls, charger context and AI assistance into one workspace, so CPOs and eMSPs can resolve issues without losing the human connection.")}</p>
+        <p className="hero-copy">{t("Automate support for EV charging users and manage every message, call and charger issue from one place. EV24 gives CPOs and eMSPs the context to resolve requests without losing the human connection.")}</p>
         <div className="hero-actions"><a className="button button-green" href={bookingUrl}>{t("Book a personalised demo")} <Icon name="arrow" size={17}/></a><a className="button button-ghost" href="#platform"><span className="play-icon"><Icon name="play" size={13}/></span>{t("Explore the platform")}</a></div>
         <div className="hero-proof"><div><strong>10,000+</strong><span>{t("chargers connected")}</span></div><i/><div><strong>{t("6 channels")}</strong><span>{t("plus voice in one inbox")}</span></div><i/><div><strong>{t("7 days")}</strong><span>{t("support availability")}</span></div></div>
       </section>
@@ -156,6 +156,8 @@ function App() {
       <section className="product-stage container"><div className="stage-glow"/><ProductInbox t={t}/></section>
 
       <section className="trust" aria-label="Supported channels"><p>{t("One workspace for every way customers reach you")}</p><ChannelMarquee t={t}/></section>
+
+      <section className="section container network-section-early" id="network"><div className="network-panel"><div className="network-copy"><span className="kicker">{t("Connected across Europe")}</span><h2>{t("Support that speaks to your charging network.")}</h2><p>{t("EV24 connects with CPO and eMSP environments, so support teams can move from “we’ll investigate” to an informed answer while the driver is still there.")}</p><div className="network-stats"><div><strong>10k+</strong><span>{t("connected chargers")}</span></div><div><strong>CPO</strong><span>{t("operator integrations")}</span></div><div><strong>eMSP</strong><span>{t("mobility integrations")}</span></div></div></div><div className="network-graphic"><div className="network-ring outer"><span className="node node-a">CPO</span><span className="node node-b">eMSP</span><span className="node node-c"><Icon name="bolt" size={17}/></span></div><div className="network-ring inner"/><div className="network-core"><div className="brand-mark"><Icon name="bolt" size={20}/></div><strong>EV24</strong><span>{t("Support layer")}</span></div><div className="pulse-line line-a"/><div className="pulse-line line-b"/></div></div></section>
 
       <section className="section container" id="platform"><div className="section-intro"><div><span className="kicker">{t("Built for charging operations")}</span><h2>{t("Turn support moments into confident resolutions.")}</h2></div><p>{t("When a driver is stuck, context matters. EV24 puts the conversation, customer history and charger status together, giving agents and AI the complete picture.")}</p></div>
         <div className="outcome-grid">
@@ -170,8 +172,6 @@ function App() {
       </div></div></section>
 
       <section className="section container voice-section"><div className="voice-panel"><div className="voice-copy"><span className="kicker kicker-light">{t("Voice, fully visible")}</span><h2>{t("Every call becomes useful context.")}</h2><p>{t("Listen to recordings, search accurate transcripts and catch up through AI summaries. Calls become part of the customer record instead of disappearing when they end.")}</p><ul><li><Icon name="check" size={16}/> {t("VoIP call recordings")}</li><li><Icon name="check" size={16}/> {t("Searchable transcripts")}</li><li><Icon name="check" size={16}/> {t("AI-generated summaries")}</li></ul></div><div className="audio-card"><div className="audio-head"><div className="avatar">MD</div><div><strong>{t("Call with Marc Dubois")}</strong><small>{t("Today")}, 10:24 · 04:18</small></div><span>{t("Resolved")}</span></div><div className="waveform"><button><Icon name="play" size={16}/></button><div className="waves">{[18,30,14,38,25,46,22,34,17,41,29,50,20,36,27,44,16,31,23,39,19,33,15,27,12,21].map((height, index) => <i key={index} style={{height}}/> )}</div><time>02:14</time></div><div className="transcript"><div><span>{t("Agent")}</span><p>{t("I can see that charger from here. The payment was accepted, but the handshake timed out.")}</p><time>02:08</time></div><div className="highlight-line"><span>Marc</span><p>{t("Okay, the light has turned green now. It’s starting.")}</p><time>02:16</time></div></div><div className="call-summary"><span><Icon name="spark" size={15}/> {t("AI summary")}</span><p>{t("Remote restart restored the charger connection. Customer confirmed the session started successfully.")}</p></div></div></div></section>
-
-      <section className="section container" id="network"><div className="network-panel"><div className="network-copy"><span className="kicker">{t("Connected across Europe")}</span><h2>{t("Support that speaks to your charging network.")}</h2><p>{t("EV24 connects with CPO and eMSP environments, so support teams can move from “we’ll investigate” to an informed answer while the driver is still there.")}</p><div className="network-stats"><div><strong>10k+</strong><span>{t("connected chargers")}</span></div><div><strong>CPO</strong><span>{t("operator integrations")}</span></div><div><strong>eMSP</strong><span>{t("mobility integrations")}</span></div></div></div><div className="network-graphic"><div className="network-ring outer"><span className="node node-a">CPO</span><span className="node node-b">eMSP</span><span className="node node-c"><Icon name="bolt" size={17}/></span></div><div className="network-ring inner"/><div className="network-core"><div className="brand-mark"><Icon name="bolt" size={20}/></div><strong>EV24</strong><span>{t("Support layer")}</span></div><div className="pulse-line line-a"/><div className="pulse-line line-b"/></div></div></section>
 
       <section className="section container testimonial-section" id="about"><div className="quote-mark">“</div><blockquote>{t("A big thank you to WattzHub for their rigour and professionalism. A team that is always attentive and available.")}</blockquote><div className="quote-by"><div className="avatar">FB</div><div><strong>Freddy Boukhris</strong><span>Borneeco</span></div></div></section>
 
