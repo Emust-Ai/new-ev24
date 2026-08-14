@@ -31,13 +31,33 @@ const marqueeChannels = [...channels, { id: "voice", label: "Voice", color: "#f4
 const bookingUrl = "https://bookings.cloud.microsoft/book/AskInnovation@ask-innovation.com/?ismsaljsauthenabled";
 const liveDemosUrl = "https://ask.ev24.support/";
 
+const ecosystemRows = [
+  [
+    ["connect-place", "Connect Place"], ["e-vadea", "e-Vadea"], ["ev-map", "EV Map"],
+    ["orios", "Orios"], ["qivia", "Qivia"], ["chargeunix", "ChargeUnix"],
+    ["avia-volt", "Avia Volt"], ["eranovum", "Eranovum"], ["chargekeeper", "Chargekeeper"],
+    ["spirii", "Spirii"], ["ze-watt", "Ze-Watt"], ["rally", "Rally"],
+    ["greenflux", "GreenFlux"], ["trafineo", "Trafineo"], ["plugsurfing", "Plugsurfing"],
+    ["izivia", "IZIVIA"], ["chargemap", "Chargemap"], ["driveco", "Driveco"],
+  ],
+  [
+    ["remo", "REMO"], ["vaylens", "Vaylens"], ["reev", "reev"],
+    ["oriway", "Oriway"], ["energyvision", "EnergyVision"], ["indigo-neo", "Indigo Neo"],
+    ["spie", "SPIE"], ["evio", "EVIO"], ["bouygues-energies", "Bouygues Energies & Services"],
+    ["chargepoint", "ChargePoint"], ["wenea", "Wenea"], ["ubitricity", "ubitricity"],
+    ["shell-recharge", "Shell Recharge Solutions"], ["epower", "ePower"], ["waat", "WAAT"],
+    ["e-leclerc", "E.Leclerc"], ["moon-charge", "MOON Power"], ["fastned", "Fastned"],
+  ],
+];
+
 const french = {
   "Platform": "Plateforme", "Channels": "Canaux", "Network": "Réseau", "About": "À propos", "See the platform": "Voir la plateforme", "Book a demo": "Demander une démo",
   "The e-mobility helpdesk built for the AI agent era": "Le helpdesk de l'e-mobilité conçu pour l'ère des agents IA",
   "Automate support for your EV charging users.": "Automatisez l'assistance de vos utilisateurs de bornes.", "Manage it all from one place.": "Pilotez tout depuis un seul espace.",
   "Automate support for EV charging users and manage every message, call and charger issue from one place. EV24 gives CPOs and eMSPs the context to resolve requests without losing the human connection.": "Automatisez l'assistance de vos utilisateurs de bornes et pilotez chaque message, appel et incident de recharge depuis un seul espace. EV24 donne aux CPO et eMSP tout le contexte nécessaire pour résoudre les demandes sans perdre le lien humain.",
-  "Book a personalised demo": "Demander une démo personnalisée", "Explore the platform": "Explorer la plateforme", "Try our live demos": "Tester nos démos en direct", "chargers connected": "bornes connectées", "6 channels": "6 canaux", "plus voice in one inbox": "et la voix dans une seule boîte", "7 days": "7j/7", "support availability": "support disponible",
+  "Book a personalised demo": "Demander une démo personnalisée", "Explore the platform": "Explorer la plateforme", "Try our live demos": "Tester nos démos en direct", "chargers connected": "bornes connectées", "6 channels": "6 canaux", "plus voice in one inbox": "et la voix dans une seule boîte", "support available around the clock": "assistance disponible en continu",
   "One workspace for every way customers reach you": "Un seul espace pour tous les canaux de vos clients", "Email": "E-mail", "Web widget": "Widget web", "Voice": "Téléphonie",
+  "Connected to a growing e-mobility ecosystem": "Connecté à un écosystème e-mobilité en pleine croissance", "Operators, platforms and infrastructure partners across Europe": "Opérateurs, plateformes et partenaires d'infrastructure à travers l'Europe",
   "Built for charging operations": "Conçu pour les opérations de recharge", "Turn support moments into confident resolutions.": "Transformez chaque demande en résolution maîtrisée.",
   "When a driver is stuck, context matters. EV24 puts the conversation, customer history and charger status together, giving agents and AI the complete picture.": "Lorsqu'un conducteur est bloqué, le contexte est essentiel. EV24 réunit la conversation, l'historique client et l'état de la borne pour offrir une vue complète aux agents et à l'IA.",
   "Know what happened before you reply.": "Comprenez la situation avant de répondre.", "Bring charger alerts, session details and past conversations into the same support view.": "Réunissez les alertes des bornes, les détails de session et les échanges précédents dans une même vue.", "Connected operations": "Opérations connectées", "Online": "En ligne", "Charging": "En charge", "Available": "Disponible",
@@ -88,6 +108,34 @@ function ChannelMarquee({ t }) {
 
 function Brand() {
   return <a className="brand" href="#top" aria-label="EV24 home"><img src="https://www.ev24.io/wp-content/uploads/2022/08/Logo-EV24_Plan-de-travail-1-4-e1661949153322.png" alt="EV24, support solution for EV charging"/></a>;
+}
+
+function EcosystemMarquee({ t }) {
+  return (
+    <section className="ecosystem-section" aria-labelledby="ecosystem-title">
+      <div className="container ecosystem-heading">
+        <span className="kicker">{t("Connected to a growing e-mobility ecosystem")}</span>
+        <h2 id="ecosystem-title">{t("Operators, platforms and infrastructure partners across Europe")}</h2>
+      </div>
+      <div className="ecosystem-rows">
+        {ecosystemRows.map((row, rowIndex) => (
+          <div className={`ecosystem-row row-${rowIndex + 1}`} key={rowIndex}>
+            <div className="ecosystem-track">
+              {[0, 1].map((set) => (
+                <div className="ecosystem-set" key={set} aria-hidden={set === 1}>
+                  {row.map(([file, name]) => (
+                    <div className="ecosystem-logo" key={`${set}-${file}`}>
+                      <img src={`/partners/${file}.png`} alt={set === 0 ? `${name} logo` : ""} loading="lazy" width="240" height="120"/>
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
 }
 
 function ProductInbox({ t }) {
@@ -151,7 +199,7 @@ function App() {
         <h1>{t("Automate support for your EV charging users.")}<br/><em>{t("Manage it all from one place.")}</em></h1>
         <p className="hero-copy">{t("Automate support for EV charging users and manage every message, call and charger issue from one place. EV24 gives CPOs and eMSPs the context to resolve requests without losing the human connection.")}</p>
         <div className="hero-actions"><a className="button button-green" href={bookingUrl}>{t("Book a personalised demo")} <Icon name="arrow" size={17}/></a><a className="button button-ghost" href={liveDemosUrl}><span className="play-icon"><Icon name="play" size={13}/></span>{t("Try our live demos")}</a></div>
-        <div className="hero-proof"><div><strong>600,000+</strong><span>{t("chargers connected")}</span></div><i/><div><strong>{t("6 channels")}</strong><span>{t("plus voice in one inbox")}</span></div><i/><div><strong>{t("7 days")}</strong><span>{t("support availability")}</span></div></div>
+        <div className="hero-proof"><div><strong>600,000+</strong><span>{t("chargers connected")}</span></div><i/><div><strong>{t("6 channels")}</strong><span>{t("plus voice in one inbox")}</span></div><i/><div><strong>24/7</strong><span>{t("support available around the clock")}</span></div></div>
       </section>
 
       <section className="product-stage container"><div className="stage-glow"/><ProductInbox t={t}/></section>
@@ -159,6 +207,8 @@ function App() {
       <section className="trust" aria-label="Supported channels"><p>{t("One workspace for every way customers reach you")}</p><ChannelMarquee t={t}/></section>
 
       <section className="section container network-section-early" id="network"><div className="network-panel"><div className="network-copy"><span className="kicker">{t("Connected across Europe")}</span><h2>{t("Support that speaks to your charging network.")}</h2><p>{t("EV24 connects with CPO and eMSP environments, so support teams can move from “we’ll investigate” to an informed answer while the driver is still there.")}</p><div className="network-stats"><div><strong>600k+</strong><span>{t("connected chargers")}</span></div><div><strong>CPO</strong><span>{t("operator integrations")}</span></div><div><strong>eMSP</strong><span>{t("mobility integrations")}</span></div></div></div><div className="network-graphic"><div className="network-ring outer"><span className="node node-a">CPO</span><span className="node node-b">eMSP</span><span className="node node-c"><Icon name="bolt" size={17}/></span></div><div className="network-ring inner"/><div className="network-core"><div className="brand-mark"><Icon name="bolt" size={20}/></div><strong>EV24</strong><span>{t("Support layer")}</span></div><div className="pulse-line line-a"/><div className="pulse-line line-b"/></div></div></section>
+
+      <EcosystemMarquee t={t}/>
 
       <section className="section container" id="platform"><div className="section-intro"><div><span className="kicker">{t("Built for charging operations")}</span><h2>{t("Turn support moments into confident resolutions.")}</h2></div><p>{t("When a driver is stuck, context matters. EV24 puts the conversation, customer history and charger status together, giving agents and AI the complete picture.")}</p></div>
         <div className="outcome-grid">
