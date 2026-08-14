@@ -5,9 +5,9 @@ const siteUrl = "https://www.ev24.support";
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
-  title: "EV24 | Le support intelligent pour la mobilité électrique",
+  title: "EV24 | Intelligent support for electric mobility",
   description:
-    "Un espace de support alimenté par l'IA pour toutes vos conversations de recharge, des messages aux appels téléphoniques.",
+    "An AI-powered support workspace for every EV charging conversation, from messages to voice calls.",
   keywords: [
     "support mobilité électrique",
     "assistance bornes de recharge",
@@ -36,22 +36,22 @@ export const metadata = {
   },
   openGraph: {
     type: "website",
-    locale: "fr_FR",
+    locale: "en_GB",
     url: siteUrl,
     siteName: "EV24",
-    title: "EV24 | Le support intelligent pour la mobilité électrique",
-    description: "Automatisez l'assistance des utilisateurs de bornes et centralisez messages, appels et incidents de recharge.",
+    title: "EV24 | Intelligent support for electric mobility",
+    description: "Automate support for EV charging users and centralize messages, calls and charging incidents.",
     images: [{
       url: "https://www.ev24.io/wp-content/uploads/2022/08/Logo-EV24_Plan-de-travail-1-4-e1661949153322.png",
       width: 1200,
       height: 630,
-      alt: "EV24, le support intelligent pour la mobilité électrique",
+      alt: "EV24, intelligent support for electric mobility",
     }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "EV24 | Support intelligent pour la mobilité électrique",
-    description: "Automatisez l'assistance des utilisateurs de bornes depuis un espace unique.",
+    title: "EV24 | Intelligent support for electric mobility",
+    description: "Automate support for EV charging users from one workspace.",
     images: ["https://www.ev24.io/wp-content/uploads/2022/08/Logo-EV24_Plan-de-travail-1-4-e1661949153322.png"],
   },
   icons: {
@@ -80,22 +80,22 @@ export default function RootLayout({ children }) {
         url: siteUrl,
         applicationCategory: "BusinessApplication",
         operatingSystem: "Web",
-        inLanguage: ["fr", "en"],
-        description: "Plateforme de support client assistée par IA pour les CPO, eMSP et opérateurs de recharge électrique.",
+        inLanguage: ["en", "fr"],
+        description: "AI-assisted customer support platform for CPOs, eMSPs and EV charging operators.",
         provider: { "@id": `${siteUrl}/#organization` },
         featureList: [
-          "Support client omnicanal",
-          "Assistance par intelligence artificielle",
-          "Transcription des appels VoIP",
-          "Intégrations CPO et eMSP",
-          "Contexte opérationnel des bornes de recharge",
+          "Omnichannel customer support",
+          "Artificial intelligence assistance",
+          "VoIP call transcription",
+          "CPO and eMSP integrations",
+          "Operational EV charger context",
         ],
       },
     ],
   };
 
   return (
-    <html lang="fr" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <body>
         {children}
         <script

@@ -1,13 +1,13 @@
 export default function manifest() {
   return {
-    name: "EV24 - Support intelligent pour la mobilité électrique",
+    name: "EV24 - Intelligent support for electric mobility",
     short_name: "EV24",
-    description: "Plateforme de support omnicanal assistée par IA pour les opérateurs de recharge électrique.",
+    description: "AI-assisted omnichannel support platform for EV charging operators.",
     start_url: "/",
     display: "standalone",
     background_color: "#f4f2ed",
     theme_color: "#392951",
-    lang: "fr",
+    lang: "en",
     icons: [
       {
         src: "/icon.svg",

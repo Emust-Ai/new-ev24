@@ -29,13 +29,14 @@ const channels = [
 
 const marqueeChannels = [...channels, { id: "voice", label: "Voice", color: "#f47b37", icon: "voice" }];
 const bookingUrl = "https://bookings.cloud.microsoft/book/AskInnovation@ask-innovation.com/?ismsaljsauthenabled";
+const liveDemosUrl = "https://ask.ev24.support/";
 
 const french = {
   "Platform": "Plateforme", "Channels": "Canaux", "Network": "Réseau", "About": "À propos", "See the platform": "Voir la plateforme", "Book a demo": "Demander une démo",
   "The e-mobility helpdesk built for the AI agent era": "Le helpdesk de l'e-mobilité conçu pour l'ère des agents IA",
   "Automate support for your EV charging users.": "Automatisez l'assistance de vos utilisateurs de bornes.", "Manage it all from one place.": "Pilotez tout depuis un seul espace.",
   "Automate support for EV charging users and manage every message, call and charger issue from one place. EV24 gives CPOs and eMSPs the context to resolve requests without losing the human connection.": "Automatisez l'assistance de vos utilisateurs de bornes et pilotez chaque message, appel et incident de recharge depuis un seul espace. EV24 donne aux CPO et eMSP tout le contexte nécessaire pour résoudre les demandes sans perdre le lien humain.",
-  "Book a personalised demo": "Demander une démo personnalisée", "Explore the platform": "Explorer la plateforme", "chargers connected": "bornes connectées", "6 channels": "6 canaux", "plus voice in one inbox": "et la voix dans une seule boîte", "7 days": "7j/7", "support availability": "support disponible",
+  "Book a personalised demo": "Demander une démo personnalisée", "Explore the platform": "Explorer la plateforme", "Try our live demos": "Tester nos démos en direct", "chargers connected": "bornes connectées", "6 channels": "6 canaux", "plus voice in one inbox": "et la voix dans une seule boîte", "7 days": "7j/7", "support availability": "support disponible",
   "One workspace for every way customers reach you": "Un seul espace pour tous les canaux de vos clients", "Email": "E-mail", "Web widget": "Widget web", "Voice": "Téléphonie",
   "Built for charging operations": "Conçu pour les opérations de recharge", "Turn support moments into confident resolutions.": "Transformez chaque demande en résolution maîtrisée.",
   "When a driver is stuck, context matters. EV24 puts the conversation, customer history and charger status together, giving agents and AI the complete picture.": "Lorsqu'un conducteur est bloqué, le contexte est essentiel. EV24 réunit la conversation, l'historique client et l'état de la borne pour offrir une vue complète aux agents et à l'IA.",
@@ -133,7 +134,7 @@ function ProductInbox({ t }) {
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeChannel, setActiveChannel] = useState("whatsapp");
-  const [language, setLanguage] = useState("fr");
+  const [language, setLanguage] = useState("en");
   const active = channels.find((channel) => channel.id === activeChannel);
   const t = (text) => language === "fr" ? french[text] ?? text : text;
   const changeLanguage = (nextLanguage) => {
@@ -149,7 +150,7 @@ function App() {
         <div className="eyebrow"><span><Icon name="spark" size={15}/></span><i/>{t("The e-mobility helpdesk built for the AI agent era")}</div>
         <h1>{t("Automate support for your EV charging users.")}<br/><em>{t("Manage it all from one place.")}</em></h1>
         <p className="hero-copy">{t("Automate support for EV charging users and manage every message, call and charger issue from one place. EV24 gives CPOs and eMSPs the context to resolve requests without losing the human connection.")}</p>
-        <div className="hero-actions"><a className="button button-green" href={bookingUrl}>{t("Book a personalised demo")} <Icon name="arrow" size={17}/></a><a className="button button-ghost" href="#platform"><span className="play-icon"><Icon name="play" size={13}/></span>{t("Explore the platform")}</a></div>
+        <div className="hero-actions"><a className="button button-green" href={bookingUrl}>{t("Book a personalised demo")} <Icon name="arrow" size={17}/></a><a className="button button-ghost" href={liveDemosUrl}><span className="play-icon"><Icon name="play" size={13}/></span>{t("Try our live demos")}</a></div>
         <div className="hero-proof"><div><strong>10,000+</strong><span>{t("chargers connected")}</span></div><i/><div><strong>{t("6 channels")}</strong><span>{t("plus voice in one inbox")}</span></div><i/><div><strong>{t("7 days")}</strong><span>{t("support availability")}</span></div></div>
       </section>
 
