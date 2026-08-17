@@ -53,7 +53,7 @@ const ecosystemRows = [
 const french = {
   "Platform": "Plateforme", "Channels": "Canaux", "Network": "Réseau", "About": "À propos", "See the platform": "Voir la plateforme", "Book a demo": "Demander une démo",
   "The e-mobility helpdesk built for the AI agent era": "Le helpdesk de l'e-mobilité conçu pour l'ère des agents IA",
-  "Automate support for your EV charging users.": "Automatisez l'assistance de vos utilisateurs de bornes.", "Manage it all from one place.": "Pilotez tout depuis un seul espace.",
+  "Reduce support costs and improve user satisfaction": "Réduisez vos coûts de support et améliorez la satisfaction utilisateur", "with automated EV charging support powered by agentic AI.": "grâce à une assistance automatisée par des agents IA pour la recharge électrique.",
   "Automate support for EV charging users and manage every message, call and charger issue from one place. EV24 gives CPOs and eMSPs the context to resolve requests without losing the human connection.": "Automatisez l'assistance de vos utilisateurs de bornes et pilotez chaque message, appel et incident de recharge depuis un seul espace. EV24 donne aux CPO et eMSP tout le contexte nécessaire pour résoudre les demandes sans perdre le lien humain.",
   "Book a personalised demo": "Demander une démo personnalisée", "Explore the platform": "Explorer la plateforme", "Try our live demos": "Tester nos démos en direct", "chargers connected": "bornes connectées", "6 channels": "6 canaux", "plus voice in one inbox": "et la voix dans une seule boîte", "support available around the clock": "assistance disponible en continu",
   "One workspace for every way customers reach you": "Un seul espace pour tous les canaux de vos clients", "Email": "E-mail", "Web widget": "Widget web", "Voice": "Téléphonie",
@@ -196,7 +196,7 @@ function App() {
 
       <section className="hero container">
         <div className="eyebrow"><span><Icon name="spark" size={15}/></span><i/>{t("The e-mobility helpdesk built for the AI agent era")}</div>
-        <h1>{t("Automate support for your EV charging users.")}<br/><em>{t("Manage it all from one place.")}</em></h1>
+        <h1>{t("Reduce support costs and improve user satisfaction")}<br/><em>{t("with automated EV charging support powered by agentic AI.")}</em></h1>
         <p className="hero-copy">{t("Automate support for EV charging users and manage every message, call and charger issue from one place. EV24 gives CPOs and eMSPs the context to resolve requests without losing the human connection.")}</p>
         <div className="hero-actions"><a className="button button-green" href={bookingUrl}>{t("Book a personalised demo")} <Icon name="arrow" size={17}/></a><a className="button button-ghost" href={liveDemosUrl}><span className="play-icon"><Icon name="play" size={13}/></span>{t("Try our live demos")}</a></div>
         <div className="hero-proof"><div><strong>600,000+</strong><span>{t("chargers connected")}</span></div><i/><div><strong>{t("6 channels")}</strong><span>{t("plus voice in one inbox")}</span></div><i/><div><strong>24/7</strong><span>{t("support available around the clock")}</span></div></div>
